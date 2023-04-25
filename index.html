@@ -44,7 +44,6 @@
     li:hover
     {
         transform: scale(1.12);
-        display: inline-block;
     }
     
     a
@@ -66,7 +65,7 @@
     .logotext
     {
         color:#68f322; 
-        font-family: 'Helvetica';
+        font-family: 'Helvetica',sans-serif;
         transition: all 1.5s ease 0s;
         font-weight: bold;
     }
@@ -76,22 +75,6 @@
         color: lightgreen;
         transition: all 0.5s ease 0s;
         font-weight: bold;
-    }
-
-    .logotext img
-    {
-        margin-left: 0px;
-        margin-right: 2px;
-    }
-
-    footer
-    {
-        text-align: center;
-        margin-top: 50px;
-        background-color: #222237;
-        color: aliceblue;
-        padding-top: 50px;
-        padding-bottom: 50px;
     }
 </style>
 
@@ -123,7 +106,7 @@
 <style>
     body
     {
-        background: url('https://wallpapercave.com/wp/wp2763910.gif');
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.6)) ,url('https://i.pinimg.com/originals/1a/29/6a/1a296ad04dbe450ef1f0f13920ea2b33.jpg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -132,8 +115,8 @@
     form
     {
         font-family: 'Ubuntu', sans-serif;
-        backdrop-filter: blur(25px);
-        padding: 10px;
+        backdrop-filter: blur(10px);
+        padding-top: 30px;
     }
 
     .reviewForm
@@ -178,7 +161,7 @@
     .reviewInp input:valid ~ span,
     .reviewInp input:focus ~ span
     {
-        transform: translateY(-30px);
+        transform: translateY(-25px);
         font-size: 13px;
         color: cyan;
     }
@@ -207,7 +190,7 @@
 
     select
     {
-        width: 90.3%;
+        width: 95%;
         position:absolute;
         background-color: aliceblue;
         border-radius: 10px;
@@ -229,7 +212,7 @@
     .buttongroup
     {
         color: aliceblue;
-        margin-left: 40%;
+        padding-bottom: 20px;
     }
 
     .btn
@@ -265,7 +248,7 @@
 <body>
     <div class="container reviewForm">
         <div class="row">
-            <h3 class="mb-5 text">CẢM NHẬN VỀ SÁCH CỦA BẠN Ở ĐÂY NÈ😄</h3>
+            <h3 class="mb-5 text text-center">CẢM NHẬN VỀ SÁCH CỦA BẠN Ở ĐÂY NÈ😄</h3>
             <form action="" method="get" enctype="multipart/form-data" autocomplete="off" class="col-lg-6 col-md-12 col-sm-12">
                 <div class="reviewInp">
                     <input autocomplete="off" name="namepost" autocapitalize="off" type="text" required>
@@ -289,26 +272,45 @@
                 <div class="reviewInp mt-5">
                     <textarea autocomplete="off" name="description" placeholder="Review Về Sách*" autocapitalize="off" type="text" required></textarea>
                 </div>
-                <div class="reviewInp mt-5">
-                    <input name="bookcover" type="file">
-                    <span style="color: #222237; font-weight: bold;">Bìa Sách</span>
-                    
+                <div class="mt-4"></div>
+                <span style="color: aliceblue; font-weight: 500;">Bìa Sách<strong><small style="color: crimson;">*</small></strong></span>  
+                <div class="reviewInp">
+                    <input name="bookcover" type="file" required>
                 </div>
                 <div class="mt-5 select">
                     <select name="gerne">
                         <option value="type" selected>-- Thể loại sách --</option>
-                        <option>Tiểu thuyết / truyện ngắn</option>
-                        <option>Tiểu thuyết / truyện dài</option>
-                        <option>Lãng mạn</option>
-                        <option>Truyện thiếu nhi</option>
-                        <option>Truyện nước ngoài</option>
-                        <option>Truyện Việt Nam</option>
-                        <option>Sách học tập</option>
+                        <optgroup label="SÁCH TRONG NƯỚC">
+                            <option>Sách Chính trị – pháp luật</option>
+                            <option>Sách Khoa học công nghệ – Kinh tế</option>
+                            <option>Sách Văn học nghệ thuật</option>
+                            <option>Sách Văn hóa xã hội – Lịch sử</option>
+                            <option>Sách Giáo trình</option>
+                            <option>Sách Truyện</option>
+                            <option>Sách tiểu thuyết</option>
+                            <option>Sách Tâm lý</option>
+                            <option>Sách tâm linh</option>
+                            <option>Sách tôn giáo</option>
+                            <option>Sách thiếu nhi</option>
+                        </optgroup>
+                        <optgroup label="SÁCH QUỐC TẾ">
+                            <option>Sách Chính trị – pháp luật</option>
+                            <option>Sách Khoa học công nghệ – Kinh tế</option>
+                            <option>Sách Văn học nghệ thuật</option>
+                            <option>Sách Văn hóa xã hội – Lịch sử</option>
+                            <option>Sách Giáo trình</option>
+                            <option>Sách Truyện</option>
+                            <option>Sách tiểu thuyết</option>
+                            <option>Sách Tâm lý</option>
+                            <option>Sách tâm linh</option>
+                            <option>Sách tôn giáo</option>
+                            <option>Sách thiếu nhi</option>
+                        </optgroup>
                     </select>
                 </div>
                 <br><br>
-                <div class="container buttongroup mt-5">
-                    <div class="row">
+                <div class="buttongroup mt-5">
+                    <div class="text-center">
                         <input type="submit" name="btnSubmit" class="btn btn-success" value="ĐĂNG">
                         <input type="reset" name="btnReset" class="btn btn-info" value="XÓA">
                     </div>
@@ -316,19 +318,24 @@
             </form>
         </div>
     </div>
+    <div class="footer">
+        <footer>
+            <p>&copy; <span style="color: #68f322;">TRUST</span> 2022-2023</p>
+            <p><a href="https://pin.it/4CFJRqX" target="_blank"><span>Background Source</span></a></p>
+        </footer>
+    </div>
 </body>
 
 <style>
     .footer
     {
         width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        background-color: #222237;
+        color: aliceblue;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 </style>
-
-<div class="footer">
-    <footer>
-            <p>&copy; <span style="color: #68f322;">TRUST</span> 2022-2023</p>
-            <p><a href="https://wallpapercave.com/wp/wp2763910.gif"><span>Background Source</span></a></p>
-    </footer>
-</div>
 </html>

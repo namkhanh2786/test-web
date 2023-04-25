@@ -27,8 +27,6 @@
     nav 
     {
         background-color: rgba(255, 255, 255, 0.001);
-        display: flex;
-        justify-content: center;
     }
     
     ul
@@ -46,6 +44,7 @@
     li:hover
     {
         transform: scale(1.12);
+        display: inline-block;
     }
     
     a
@@ -96,7 +95,7 @@
     }
 </style>
 
-<nav class="navbar fixed-top navbar-light navbar-expand-sm">
+<nav class="navbar fixed-top navbar-light mb-5" id="navigation-bar">
     <div class="container">
         <a class="navbar-brand" href="guest.php" target="">
             <h4 class="logotext"><img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/339645190_963296404841364_2948126206449050955_n.png?_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=Nw9l6opzTxcAX_tLBFy&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQTmmmUO9pgH3ZEEBksYwruC2-mWKyWRHf1MS-BBibIkw&oe=64560D72" 
@@ -108,6 +107,17 @@
             <li><a href="guestBook.php">XEM REVIEW SÁCH</a></li>
         </ul>
     </div>
+
+    <!-- <button class="navbar-toggler" id="cbutton" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="https://live.staticflickr.com/1592/24255501882_c87f443835_b.jpg" class="navbar-toggler-icon" alt="">
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li><a href="guestBookreview.php" class="nav-item">REVIEW SÁCH</a></li>
+            <li><a href="guestBook.php" class="nav-item">XEM REVIEW SÁCH</a></li>
+        </ul>
+    </div> -->
 </nav>
 
 <style>
@@ -117,13 +127,13 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        width: 100%;
-        height: 100%;
     }
 
     form
     {
         font-family: 'Ubuntu', sans-serif;
+        backdrop-filter: blur(25px);
+        padding: 10px;
     }
 
     .reviewForm
@@ -134,13 +144,13 @@
     .reviewInp
     {
         position: relative;
-        width: 250px;
+        width: 100%;
         color: aliceblue;
     }
 
     .reviewInp input
     {
-        width: 455%;
+        width: 100%;
         background-color: rgba(255, 255, 255, 0.05);
         border: none;
         outline: none;
@@ -168,7 +178,7 @@
     .reviewInp input:valid ~ span,
     .reviewInp input:focus ~ span
     {
-        transform: translateY(-60px);
+        transform: translateY(-30px);
         font-size: 13px;
         color: cyan;
     }
@@ -180,13 +190,13 @@
         bottom: 0;
         border-bottom: solid aliceblue;
         overflow: hidden;
-        width: 400%;
+        width: 100%;
         height: 2px;
     }
 
     .reviewInp textarea
     {
-        width: 455%;
+        width: 100%;
         height: 200px;
         background-color: rgba(0, 0, 0, 0.5);
         letter-spacing: 0.1em;
@@ -232,7 +242,7 @@
 
     .btn:hover
     {
-        transform: scale(1.25);
+        transform: scale(1.15);
         background-color: rgba(0, 0, 0, 0.9);
         font-weight: bold;
     }
@@ -253,60 +263,72 @@
 <br><br><br>
 
 <body>
-    <div class="reviewForm container">
-        <h3 class="col mb-5 text">CẢM NHẬN VỀ SÁCH CỦA BẠN Ở ĐÂY NÈ😄</h3>
-        <form action="" method="get" enctype="multipart/form-data" autocomplete="off">
-            <div class="col reviewInp">
-                <input autocomplete="off" name="namepost" autocapitalize="off" type="text" required>
-                <span>Tên Của Bạn<strong><small style="color: crimson;">*</small></strong></span>
-                <i class="inputline ml-3"></i>
-            </div>
-            <div class="col reviewInp mt-5">
-                <input autocomplete="off" name="emailpost" autocapitalize="off" type="email" required>
-                <span>Email Của Bạn<strong><small style="color: crimson;">*</small></strong></span>
-                <i class="inputline ml-3"></i>
-            </div>
-            <div class="col reviewInp mt-5">
-                <input autocomplete="off" name="namebook" autocapitalize="off" type="text" required>
-                <span>Tên Sách<strong><small style="color: crimson;">*</small></strong></span>
-                <i class="inputline ml-3"></i>
-            </div>
-            <div class="col reviewInp mt-5">
-                <input autocomplete="off" name="nameauthor" autocapitalize="off" type="text" required>
-                <span>Tên Tác Giả<strong><small style="color: crimson;">*</small></strong></span>
-                <i class="inputline ml-3"></i>
-            </div>
-            <div class="col reviewInp mt-5">
-                <textarea autocomplete="off" name="description" placeholder="Review Về Sách*" autocapitalize="off" type="text" required></textarea>
-            </div>
-            <div class="col reviewInp mt-5">
-                <input name="bookcover" type="file">
-                <span style="color: #222237; font-weight: bold;">Bìa Sách</span>
-                <i class="inputline ml-3"></i>
-            </div>
-            <div class="col mt-5 select">
-                <select name="gerne">
-                    <option value="type" selected>-- Thể loại sách --</option>
-                    <option>Tiểu thuyết / truyện ngắn</option>
-                    <option>Tiểu thuyết / truyện dài</option>
-                    <option>Lãng mạn</option>
-                    <option>Truyện thiếu nhi</option>
-                    <option>Truyện nước ngoài</option>
-                    <option>Truyện Việt Nam</option>
-                    <option>Sách học tập</option>
-                </select>
-            </div>
-            <br><br>
-            <div class="col buttongroup mt-5">
-                <input type="submit" name="btnSubmit" class="btn btn-success" value="ĐĂNG">
-                <input type="reset" name="btnReset" class="btn btn-info" value="XÓA">
-            </div>
-        </form>
+    <div class="container reviewForm">
+        <div class="row">
+            <h3 class="mb-5 text">CẢM NHẬN VỀ SÁCH CỦA BẠN Ở ĐÂY NÈ😄</h3>
+            <form action="" method="get" enctype="multipart/form-data" autocomplete="off" class="col-lg-6 col-md-12 col-sm-12">
+                <div class="reviewInp">
+                    <input autocomplete="off" name="namepost" autocapitalize="off" type="text" required>
+                    <span>Tên Của Bạn<strong><small style="color: crimson;">*</small></strong></span>
+                </div>
+                <div class="reviewInp mt-5">
+                    <input autocomplete="off" name="emailpost" autocapitalize="off" type="email" required>
+                    <span>Email Của Bạn<strong><small style="color: crimson;">*</small></strong></span>
+                    
+                </div>
+                <div class="reviewInp mt-5">
+                    <input autocomplete="off" name="namebook" autocapitalize="off" type="text" required>
+                    <span>Tên Sách<strong><small style="color: crimson;">*</small></strong></span>
+                    
+                </div>
+                <div class="reviewInp mt-5">
+                    <input autocomplete="off" name="nameauthor" autocapitalize="off" type="text" required>
+                    <span>Tên Tác Giả<strong><small style="color: crimson;">*</small></strong></span>
+                    
+                </div>
+                <div class="reviewInp mt-5">
+                    <textarea autocomplete="off" name="description" placeholder="Review Về Sách*" autocapitalize="off" type="text" required></textarea>
+                </div>
+                <div class="reviewInp mt-5">
+                    <input name="bookcover" type="file">
+                    <span style="color: #222237; font-weight: bold;">Bìa Sách</span>
+                    
+                </div>
+                <div class="mt-5 select">
+                    <select name="gerne">
+                        <option value="type" selected>-- Thể loại sách --</option>
+                        <option>Tiểu thuyết / truyện ngắn</option>
+                        <option>Tiểu thuyết / truyện dài</option>
+                        <option>Lãng mạn</option>
+                        <option>Truyện thiếu nhi</option>
+                        <option>Truyện nước ngoài</option>
+                        <option>Truyện Việt Nam</option>
+                        <option>Sách học tập</option>
+                    </select>
+                </div>
+                <br><br>
+                <div class="container buttongroup mt-5">
+                    <div class="row">
+                        <input type="submit" name="btnSubmit" class="btn btn-success" value="ĐĂNG">
+                        <input type="reset" name="btnReset" class="btn btn-info" value="XÓA">
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 
-<footer>
-    <p class="col">&copy; <span style="color: #68f322;">TRUST</span> 2022-2023</p>
-    <p class="col"><a href="https://wallpapercave.com/wp/wp2763910.gif"><span>Background Source</span></a></p>
-</footer>
+<style>
+    .footer
+    {
+        width: 100%;
+    }
+</style>
+
+<div class="footer">
+    <footer>
+            <p>&copy; <span style="color: #68f322;">TRUST</span> 2022-2023</p>
+            <p><a href="https://wallpapercave.com/wp/wp2763910.gif"><span>Background Source</span></a></p>
+    </footer>
+</div>
 </html>
